@@ -1,0 +1,9 @@
+<%= simple_form_for [ @user, @dress ] do |f| %>
+  <%= f.input :title %>
+  <%= f.input :description %>
+  <%= f.input :photos, as: :file %>
+  <%= f.input :brand %>
+  <%= f.input :size %>
+  <%= f.input :price %>
+  <%= f.submit "Add a dress", class: "btn btn-primary" %>
+<% end %>

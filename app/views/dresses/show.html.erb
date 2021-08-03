@@ -1,0 +1,21 @@
+<%= link_to "Back", dresses_path, class: "btn btn-main"%>
+<% if @dress.user == current_user %>
+  <%= link_to "Edit", edit_dress_path(@dress), class: "btn btn-main" %>
+  <%= link_to "Delete", dress_path(@dress), method: :delete, class: "btn btn-main" %>
+<% end %>
+<div class="container">
+  <div class="dress-display">
+    <% @dress.photos.each do |photo| %>
+      <%= cl_image_tag photo.key, crop: :fill%>
+    <% end %>
+    <div class="dress-info">
+      <h1><%= @dress.title %></h1>
+      <h3><%= @dress.brand %></h3>
+      <h4>Size: <%= @dress.size %></h3>
+      <p><%= @dress.description %></p>
+      <h4>£<%= @dress.price %>/day</h4>
+      <%= link_to "Book", new_dress_booking_path(@dress), class: "btn btn-main" %>
+    </div>
+  </div>
+  <%= render 'booking_form', user: @user, dress: @dress, booking: @booking %>
+</div>

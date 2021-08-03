@@ -5,6 +5,8 @@ ruby '2.6.6'
 gem 'cloudinary', '~> 1.16.0'
 gem 'devise'
 gem 'dotenv-rails', groups: [:development, :test]
+gem 'faker', :git => 'https://github.com/faker-ruby/faker.git', :branch => 'master'
+
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails', branch: 'main'
 gem 'rails', '~> 6.0.4'
 # Use postgresql as the database for Active Record

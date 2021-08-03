@@ -1,0 +1,26 @@
+<% if user_signed_in? %>
+  <%= link_to "Add a dress", new_dress_path, class: "btn btn-primary" %>
+<% end %>
+<div class="container">
+  <div class="dresses">
+    <% @dresses.each do |dress| %>
+      <%= link_to dress_path(dress) do %>
+        <div class="card-dress">
+          <% if dress.photos %>
+              <%= cl_image_tag dress.photos.first.key, height: 800, width: 800, crop: :fill, class: "dress" %>
+            <% else %>
+              <p>No photo :(</p>
+          <% end %>
+          <div class="card-dress-infos">
+            <div>
+              <h2><%= dress.title %></h2>
+              <p><%= dress.description %></p>
+            </div>
+            <h2 class="card-dress-pricing"><%= dress.price %>£</h2>
+              <h2 class="btn btn-primary">Book</h2>
+          </div>
+        </div>
+      <% end %>
+    <% end %>
+  </div>
+</div>

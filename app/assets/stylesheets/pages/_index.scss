@@ -1,2 +1,9 @@
 // Import page-specific CSS files here.
 @import "home";
+@import "dresses_show";
+@import "dresses_index";
+
+.container {
+  width: 800px;
+  margin: 20px auto;
+}
