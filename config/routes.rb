@@ -6,12 +6,13 @@ Rails.application.routes.draw do
     resources :dresses, except: [:destroy]
   end
   resources :dresses do
-    resources :bookings, only: [:new, :edit, :create]
-    resources :reviews, except: [:destroy]
+    resources :bookings, only: [:new, :edit, :create, :update]
+    resources :reviews, only: [:new, :edit, :create, :update]
   end
+  resources :bookings, only: [:destroy]
   resources :reviews, only: [:destroy]
   get '/about', to: 'pages#about', as: :about
   get '/my-dresses', to: 'dresses#my_dresses', as: :my_dresses
   get '/my-bookings', to: 'bookings#my_bookings', as: :my_bookings
-  get '/booking-requests', to: 'bookings#/booking_requests', as: :booking_requests
+  get '/booking-requests', to: 'bookings#booking_requests', as: :booking_requests
 end

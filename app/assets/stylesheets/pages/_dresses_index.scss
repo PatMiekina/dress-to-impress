@@ -1,0 +1,11 @@
+.dress {
+  width: 400px;
+  height: 100%;
+  object-fit: cover;
+}
+
+.dresses {
+  display: flex;
+  justify-content: space-around;
+  flex-wrap: wrap;
+}

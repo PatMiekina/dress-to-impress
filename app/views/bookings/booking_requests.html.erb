@@ -1,0 +1,30 @@
+<div class="container">
+  <div class="bookings">
+    <% @bookings.each do |booking| %>
+      <div class="card-booking ">
+        <%= cl_image_tag booking.dress.photos.first.key, crop: :fill%>
+        <div class="booking-info">
+          <h2><%= booking.dress.title %></h2>
+          <p><%= booking.user.username %></p>
+          <p>Start date: <%= booking.start_date %></p>
+          <p>End date: <%= booking.end_date %></p>
+          <% if booking.confirmed == false %>
+            <div class="confirm reject">
+              <%= link_to booking_path(booking), method: :confirm do %>
+                <p><i class="fas fa-check"></i>Confirm</p>
+              <% end %>
+              <%= link_to booking_path(booking), method: :delete, data: { confirm: "Are you sure?" }  do %>
+               <p><i class="fas fa-times"></i>Reject</p>
+              <% end %>
+            </div>
+          <% else %>
+            <p><i class="fas fa-check"></i>Confirmed</p>
+            <%= link_to booking_path(booking), method: :delete, data: { confirm: "Are you sure?" }  do %>
+              <p><i class="fas fa-times"></i>Cancel</p>
+            <% end %>
+          <% end %>
+        </div>
+    </div>
+    <% end %>
+  </div>
+</div>

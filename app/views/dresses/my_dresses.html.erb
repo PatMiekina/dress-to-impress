@@ -5,7 +5,7 @@
   <div class="dresses">
     <% @dresses.each do |dress| %>
       <%= link_to dress_path(dress) do %>
-        <div class="card-dress">
+        <div class="card-dress card">
           <% if dress.photos %>
               <%= cl_image_tag dress.photos.first.key, height: 800, width: 800, crop: :fill, class: "dress" %>
             <% else %>

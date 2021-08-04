@@ -1,11 +1,11 @@
-<% if user_signed_in? %>
-  <%= link_to "Add a dress", new_dress_path, class: "btn btn-main" %>
-<% end %>
 <div class="container">
+  <% if user_signed_in? %>
+    <%= link_to "Add a dress", new_dress_path, class: "btn btn-main" %>
+  <% end %>
   <div class="dresses">
     <% @dresses.each do |dress| %>
       <%= link_to dress_path(dress) do %>
-        <div class="card-dress">
+        <div class="card-dress card">
           <% if dress.photos %>
               <%= cl_image_tag dress.photos.first.key, height: 800, width: 800, crop: :fill, class: "dress" %>
             <% else %>
@@ -15,9 +15,11 @@
             <div>
               <h2><%= dress.title %></h2>
               <p><%= dress.description %></p>
+              <h2 class="card-dress-pricing"><%= dress.price %>£</h2>
             </div>
-            <h2 class="card-dress-pricing"><%= dress.price %>£</h2>
-              <h2 class="btn btn-flat">Book</h2>
+            <!-- next line breaks the code -->
+            <!-- <%= link_to "Book", new_dress_booking_path(dress), class: "btn btn-main" %> -->
+            <h2 class="btn btn-flat">Book</h2>
           </div>
         </div>
       <% end %>

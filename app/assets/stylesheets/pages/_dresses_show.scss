@@ -14,9 +14,28 @@
   box-shadow: 0 0 15px rgba(0,0,0,0.2);
   border-radius: 8px;
   overflow: hidden;
+  background: white;
 }
 
 .dress-info {
   margin-left: 32px;
   padding: 16px;
+}
+
+.reviews {
+  display: flex;
+  justify-content: space-between;
+  padding: 32px;
+  align-items: center;
+  background: white;
+  border-radius: 8px;
+}
+
+.new-review {
+  width: 300px;
+  margin-left: 16px;
+}
+
+.display-reviews {
+  flex-grow: 1;
 }

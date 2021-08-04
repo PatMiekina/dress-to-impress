@@ -4,7 +4,7 @@
   <%= link_to "Delete", dress_path(@dress), method: :delete, class: "btn btn-main" %>
 <% end %>
 <div class="container">
-  <div class="dress-display">
+  <div class="dress-display card">
     <% @dress.photos.each do |photo| %>
       <%= cl_image_tag photo.key, crop: :fill%>
     <% end %>
@@ -13,9 +13,41 @@
       <h3><%= @dress.brand %></h3>
       <h4>Size: <%= @dress.size %></h3>
       <p><%= @dress.description %></p>
-      <h4>£<%= @dress.price %>/day</h4>
+      <h4>£<%= @dress.price %> / day</h4>
       <%= link_to "Book", new_dress_booking_path(@dress), class: "btn btn-main" %>
     </div>
   </div>
-  <%= render 'booking_form', user: @user, dress: @dress, booking: @booking %>
+  <div class="reviews">
+      <div class="display-reviews">
+        <% if @dress.reviews.empty? %>
+          <p>Be the first to leave a review!</p>
+        <% else %>
+          <% @sum = 0 %>
+          <% @dress.reviews.each do |review| %>
+            <% @sum += review.rating %>
+          <% end %>
+          <% @dress_rating = @sum.fdiv(@dress.reviews.length) %>
+          <p>Rating: <%= @dress_rating %></p>
+          <% @dress.reviews.each do |review| %>
+          <p><% review.rating.times do %>
+            ⭐
+            <% end %>
+          </p>
+          <p><%= review.content %></p>
+          <% if review.user == current_user %>
+            <%= link_to review_path(review), method: :delete,
+                data: { confirm: "Are you sure?" } do %>
+            <p><i class="fas fa-trash"></i> Delete</p>
+            <% end %>
+          <% end %>
+          <% unless review == @dress.reviews.last %>
+            <hr>
+          <% end %>
+          <% end %>
+        <% end %>
+      </div>
+      <div class="new-review">
+        <%= render "review", dress: @dress, review: @review %>
+      </div>
+  </div>
 </div>
