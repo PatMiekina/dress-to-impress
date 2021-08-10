@@ -1,5 +1,7 @@
-<%= simple_form_for [@dress, @booking ] do |f| %>
-  <%= f.input :start_date %>
-  <%= f.input :end_date %>
-  <%= f.submit "Book", class: "btn btn-flat" %>
-<% end %>
+<div class="container container-form">
+  <%= simple_form_for [@dress, @booking ] do |f| %>
+    <%= f.input :start_date %>
+    <%= f.input :end_date %>
+    <%= f.submit "Book", class: "btn btn-flat" %>
+  <% end %>
+</div>

@@ -7,6 +7,12 @@
 .dresses {
   display: flex;
   justify-content: space-between;
+  flex-wrap: wrap;
+}
+
+.wrapper {
+  width: 70%;
+  display: inline-block;
 }
 
 .dress-display {
@@ -17,9 +23,14 @@
   background: white;
 }
 
+.dress-flex {
+  display: flex;
+  justify-content: left;
+}
+
 .dress-info {
-  margin-left: 32px;
-  padding: 16px;
+  margin: 24px;
+  width: 250px;
 }
 
 .reviews {
@@ -29,6 +40,15 @@
   align-items: center;
   background: white;
   border-radius: 8px;
+}
+
+.review {
+  display: flex;
+  justify-content: space-between;
+}
+
+.delete-review {
+  margin-right: 40px;
 }
 
 .new-review {
