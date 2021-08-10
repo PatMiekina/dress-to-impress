@@ -31,8 +31,8 @@ class ReviewsController < ApplicationController
   end
 
   def destroy
-    @review.dress = @dress
     @review.delete
+    @dress = @review.dress
     redirect_to dress_path(@dress)
   end
 
