@@ -12,6 +12,7 @@ class ReviewsController < ApplicationController
     @review.user = current_user
     if @review.save
       redirect_to dress_path(@dress)
+      redirect_to dress_path(@dress, anchor: "review-#{@review.id}")
     else
       render :new
     end

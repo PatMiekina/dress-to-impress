@@ -1,4 +1,4 @@
-<%= simple_form_for [ @dress, @review ] do |f| %>
+<%= simple_form_for [ @dress, @review ], remote: true do |f| %>
   <%= f.input :rating %>
   <%= f.input :content %>
   <%= f.submit "Add review", class: "btn btn-flat" %>

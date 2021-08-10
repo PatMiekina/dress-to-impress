@@ -27,23 +27,25 @@
             <% @sum += review.rating %>
           <% end %>
           <% @dress_rating = @sum.fdiv(@dress.reviews.length) %>
-          <p>Rating: <%= @dress_rating %></p>
-          <% @dress.reviews.each do |review| %>
-          <p><% review.rating.times do %>
-            ⭐
-            <% end %>
-          </p>
-          <p><%= review.content %></p>
-          <% if review.user == current_user %>
-            <%= link_to review_path(review), method: :delete,
-                data: { confirm: "Are you sure?" } do %>
-            <p><i class="fas fa-trash"></i> Delete</p>
-            <% end %>
-          <% end %>
-          <% unless review == @dress.reviews.last %>
-            <hr>
-          <% end %>
-          <% end %>
+            <p>Rating: <%= @dress_rating %></p>
+            <% @dress.reviews.each do |review| %>
+            <!-- <div id="review-<%= review.id %>"> -->
+              <p><% review.rating.times do %>
+                ⭐
+                <% end %>
+              </p>
+              <p><%= review.content %></p>
+              <% if review.user == current_user %>
+                <%= link_to review_path(review), method: :delete,
+                    data: { confirm: "Are you sure?" } do %>
+                <p><i class="fas fa-trash"></i> Delete</p>
+                <% end %>
+              <% end %>
+              <% unless review == @dress.reviews.last %>
+                <hr>
+              <% end %>
+              <% end %>
+            <!-- </div> -->
         <% end %>
       </div>
       <div class="new-review">

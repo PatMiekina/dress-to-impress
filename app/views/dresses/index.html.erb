@@ -17,6 +17,9 @@
      data-markers="<%= @markers.to_json %>"
      data-mapbox-api-key="<%= ENV['MAPBOX_API_KEY'] %>">
   </div>
+  <h2>
+      There are <%= pluralize @dresses.size, "dress" %> nearby:
+    </h2>
   <div class="dresses">
     <% @dresses.each do |dress| %>
       <%= link_to dress_path(dress) do %>

@@ -2,7 +2,7 @@
   <%= simple_form_for [ @user, @dress ] do |f| %>
     <%= f.input :title %>
     <%= f.input :description %>
-    <%= f.input :photos, as: :file %>
+    <%= f.input :photos, as: :file, input_html: { multiple: true} %>
     <%= f.input :brand %>
     <%= f.input :size %>
     <%= f.input :price %>
