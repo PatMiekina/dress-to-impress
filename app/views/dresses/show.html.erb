@@ -1,9 +1,9 @@
-<%= link_to "Back", dresses_path, class: "btn btn-main"%>
-<% if @dress.user == current_user %>
-  <%= link_to "Edit", edit_dress_path(@dress), class: "btn btn-main" %>
-  <%= link_to "Delete", dress_path(@dress), method: :delete, class: "btn btn-main" %>
-<% end %>
 <div class="container">
+  <%= link_to "Back", dresses_path, class: "btn btn-main"%>
+  <% if @dress.user == current_user %>
+    <%= link_to "Edit", edit_dress_path(@dress), class: "btn btn-main" %>
+    <%= link_to "Delete", dress_path(@dress), method: :delete, class: "btn btn-main" %>
+  <% end %>
   <div class="dress-display card">
     <% @dress.photos.each do |photo| %>
       <%= cl_image_tag photo.key, crop: :fill%>

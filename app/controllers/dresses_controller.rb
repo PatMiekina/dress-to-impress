@@ -4,7 +4,15 @@ class DressesController < ApplicationController
   before_action :set_user
 
   def index
-    @dresses = Dress.all
+    @dresses = Dress.where.not(latitude: nil, longitude: nil)
+    @markers = @dresses.geocoded.map do |dress|
+      {
+        lat: dress.latitude,
+        lng: dress.longitude,
+        info_window: render_to_string(partial: "info_window", locals: { dress: dress }),
+        image_url: helpers.asset_url('dress.png')
+      }
+    end
   end
 
   def show
@@ -65,6 +73,6 @@ class DressesController < ApplicationController
   end
 
   def dress_params
-    params.require(:dress).permit(:title, :description, :size, :brand, :price, :photos)
+    params.require(:dress).permit(:title, :description, :size, :brand, :price, :photos, :address)
   end
 end

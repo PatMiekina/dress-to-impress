@@ -1,7 +1,22 @@
-<div class="container">
+<div class="container container-index">
   <% if user_signed_in? %>
     <%= link_to "Add a dress", new_dress_path, class: "btn btn-main" %>
   <% end %>
+<!--   <p>
+  <button class="btn btn-primary" type="button" data-bs-toggle="collapse" data-bs-target="#collapseExample" aria-expanded="false" aria-controls="collapseExample">
+    Button with data-bs-target
+  </button>
+</p>
+<div class="collapse" id="collapseExample">
+  <div class="card card-body">
+    Some placeholder content for the collapse component. This panel is hidden by default but revealed when the user activates the relevant trigger.
+  </div> -->
+<!-- </div> -->
+  <div id="map"
+     style="width: 100%; height: 400px;"
+     data-markers="<%= @markers.to_json %>"
+     data-mapbox-api-key="<%= ENV['MAPBOX_API_KEY'] %>">
+  </div>
   <div class="dresses">
     <% @dresses.each do |dress| %>
       <%= link_to dress_path(dress) do %>
