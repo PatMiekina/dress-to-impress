@@ -1,4 +1,4 @@
-import places from 'init_autocomplete.js.js';
+import places from 'places.js';
 
 const initAutocomplete = () => {
   const addressInput = document.getElementById('flat_address');
