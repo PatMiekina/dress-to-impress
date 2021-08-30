@@ -24,10 +24,10 @@
     <% @dresses.each do |dress| %>
       <%= link_to dress_path(dress) do %>
         <div class="card-dress card">
-          <% if dress.photos %>
-              <%= cl_image_tag dress.photos.first.key, height: 800, width: 800, crop: :fill, class: "dress" %>
+          <% if dress.photos.attached? %>
+              <%= cl_image_tag dress.photos.first.key, height: 800, width: 800, crop: :fill, gravity: :face, class: "dress" %>
             <% else %>
-              <p>No photo :(</p>
+              <%= cl_image_tag "hq60xp9nvdv5nkn2tehp", height: 800, width: 800, crop: :pad, class: "dress"  %>
           <% end %>
           <div class="card-dress-infos">
             <div>

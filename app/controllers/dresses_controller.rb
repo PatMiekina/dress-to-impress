@@ -4,7 +4,8 @@ class DressesController < ApplicationController
   before_action :set_user
 
   def index
-    @dresses = Dress.where.not(latitude: nil, longitude: nil)
+    @dresses = Dress.all
+    # @dresses = Dress.where.not(latitude: nil, longitude: nil)
     @markers = @dresses.geocoded.map do |dress|
       {
         lat: dress.latitude,

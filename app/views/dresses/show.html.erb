@@ -10,17 +10,17 @@
       <div class="wrapper">
         <div>
           <% if !@dress.photos.attached? %>
-            <%= image_tag "https://lh3.googleusercontent.com/proxy/CBa4DlMNqLg_ULnczvpDntEhb0fw8rDdCqHYx9z_fZgFSipEE5603p-26kwHQCBHVM4v7s3Tj6lbH8K9G-x47C73zw", class:"d-block w-100"  %>
+            <%= cl_image_tag "hq60xp9nvdv5nkn2tehp", crop: :fit, class:"d-block w-100"  %>
 
           <% elsif @dress.photos.size == 1 %>
-            <img class="d-block dress-img w-100" src="<%= cl_image_path @dress.photos.first.key %>" alt="photo" >
+            <img class="d-block dress-img w-100" src="<%= cl_image_path @dress.photos.first.key, crop: :pad %>" alt="photo" >
 
           <% elsif @dress.photos.size > 1 %>
             <div id="carouselExampleIndicators" class="carousel slide">
               <div class="carousel-inner">
                 <% @dress.photos.each_with_index do |photo, index| %>
                   <div class="carousel-item <%= "active" if index.zero? %>">
-                      <img class="d-block dress-img w-100" src="<%= cl_image_path photo.key %>" alt="<%= index.ordinalize %> image">
+                      <img class="d-block dress-img w-100" src="<%= cl_image_path photo.key, crop: :pad %>" alt="<%= index.ordinalize %> image">
                   </div>
                 <% end %>
               </div>
@@ -58,7 +58,7 @@
             <% @sum += review.rating %>
           <% end %>
           <% @dress_rating = @sum.fdiv(@dress.reviews.length) %>
-            <p>Rating: <%= @dress_rating %></p>
+            <p>Rating: <%= @dress_rating.round(1) %></p>
             <% @dress.reviews.each do |review| %>
             <!-- <div id="review-<%= review.id %>"> -->
               <div class="review">
