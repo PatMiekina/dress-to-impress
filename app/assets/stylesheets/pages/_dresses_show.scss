@@ -11,7 +11,7 @@
 }
 
 .wrapper {
-  width: 70%;
+  flex-grow: 1;
   display: inline-block;
 }
 
@@ -25,7 +25,8 @@
 
 .dress-flex {
   display: flex;
-  justify-content: left;
+  justify-content: space-around;
+  flex-wrap: wrap;
 }
 
 .dress-info {
@@ -35,6 +36,7 @@
 
 .reviews {
   display: flex;
+  // flex-wrap: wrap;
   justify-content: space-between;
   padding: 32px;
   align-items: center;
@@ -52,7 +54,7 @@
 }
 
 .new-review {
-  width: 300px;
+  width: 100%;
   margin-left: 16px;
 }
 

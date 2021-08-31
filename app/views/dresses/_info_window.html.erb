@@ -1,2 +1,9 @@
-<h2><%= dress.title %></h2>
-<p><%= dress.address %></p>
+<%= link_to dress_path(dress) do %>
+  <h2><%= dress.title %></h2>
+  <p><%= dress.address %></p>
+  <% if dress.photos.attached? %>
+    <%= cl_image_tag dress.photos.first.key, height: 800, width: 800, crop: :fill, gravity: :face, class: "info-window-dress" %>
+  <% else %>
+    <%= cl_image_tag "hq60xp9nvdv5nkn2tehp", height: 800, width: 800, crop: :pad, class: "info-window-dress"  %>
+  <% end %>
+<% end %>
