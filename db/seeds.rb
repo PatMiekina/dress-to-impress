@@ -54,22 +54,22 @@ addresses = [
 10.times do
   dress = Dress.create!(
     user: User.all.sample,
-    title: Faker::Hipster.sentence,
+    title: "#{Faker::Color.color_name.capitalize} dress",
     brand: Faker::Company.name,
     address: addresses.sample,
     price: rand(10..100),
     size: [8, 10, 12, 14, 16, 18].sample,
-    description: Faker::Lorem.sentence
+    description: Faker::ChuckNorris.fact
     )
-  rand(0..4).times do
+  rand(0..3).times do
     file = URI.open(dresses_urls.sample)
     dress.photos.attach(io: file, filename: 'photo.jpg')
   end
   # creating random reviews
-  rand(2..7).times do
+  rand(2..4).times do
     review = Review.create!(
     rating: rand(1..5),
-    content: Faker::Movie.quote,
+    content: Faker::Hipster.paragraph(sentence_count: 2),
     dress: dress,
     user: User.all.sample
     )
@@ -77,8 +77,8 @@ addresses = [
 end
 
 # creating bookings
-puts 'Creating 30 fake bookings...'
-30.times do
+puts 'Creating 20 fake bookings...'
+20.times do
   Booking.create(
     start_date: DateTime.now,
     end_date: DateTime.now + 1,
