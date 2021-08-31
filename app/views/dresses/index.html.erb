@@ -3,9 +3,9 @@
     <%= link_to "Add a dress", new_dress_path, class: "btn btn-main" %>
   <% end %>
   <p>
-  <button class="btn btn-flat" type="button" data-bs-toggle="collapse" data-bs-target="#collapseExample" aria-expanded="false" aria-controls="collapseExample">
-    See map
-  </button>
+   <a class="btn btn-flat" data-bs-toggle="collapse" href="#collapseExample" role="button" aria-expanded="false" aria-controls="collapseExample">
+    <i class="fas fa-globe-americas"></i> See map
+  </a>
 </p>
 <div class="collapse" id="collapseExample">
   <div id="map"
