@@ -1,0 +1,23 @@
+.footer {
+  background-color: white;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  position: fixed;
+  bottom: 0;
+  width: 100%;
+  padding: 0.5rem;
+  .contact-icons{
+    font-size: 1.5rem;
+    a {
+      color: black;
+    }
+    p {
+      font-size: 1rem;
+      margin-bottom: 0;
+    }
+  }
+}
+.no-margin {
+  margin-bottom: 0;
+}
